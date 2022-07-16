@@ -2,11 +2,18 @@ import Header from "./components/Header"
 import NotificationButton from "./components/NotificationButton"
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function App() {
     const[minDate,setMinDate]=useState(new Date(new Date().setDate(new Date().getDate() - 365)));
     const[maxDate,setMaxDate]=useState(new Date());
+    useEffect(()=>{
+        axios.get("https://dsmeta-claudinei.herokuapp.com/sales")
+        .then(response=>{
+            console.log(response.data)
+        })
+    },[])
   return (
     <>
       <Header />
