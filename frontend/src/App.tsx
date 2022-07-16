@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "./utils/request";
 import { Sale } from "./models/sale";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
     const[minDate,setMinDate]=useState(new Date(new Date().setDate(new Date().getDate() - 365)));
@@ -21,6 +23,7 @@ function App() {
     },[minDate,maxDate])
   return (
     <>
+      <ToastContainer />
       <Header />
       <main>
         <section id="sales">
